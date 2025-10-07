@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
 let port = 4000 ;
-
+let URL = "https://todo-backend-express-weld.vercel.app/" ;
 function App() {
   const [TODOS, setTODOS] = useState([]) ;
 
@@ -12,7 +12,7 @@ function App() {
        
  useEffect(()=>{
     setInterval(async()=>{
-      await axios.get(`http://localhost:${port}/`)
+      await axios.get(`${URL}/`)
     .then((res)=>{
       setTODOS(res.data.todos)
       console.log(TODOS)
@@ -25,7 +25,7 @@ function App() {
     <>
      <AddTodoBox />
      <button onClick={async()=>{
-      await axios.get(`http://localhost:${port}/deleteAll`).then(res => {
+      await axios.get(`${URL}/deleteAll`).then(res => {
         console.log(res.data.msg) ;
       })
      }}>clear</button>
@@ -54,7 +54,7 @@ function AddTodoBox ({fetchUsers}) {
      }} ></input></div>
      <button onClick={async()=>{
       try {
-        await axios.post(`http://localhost:${port}/addTodo` , {
+        await axios.post(`${URL}/addTodo` , {
           title : title , 
           description  : description
         }).then( res => {
@@ -77,7 +77,7 @@ function AllTodos({todos }) {
     <h3>description :- {t.description}</h3>
     <button onClick={async ()=>{
       try{
-        await axios.post(`http://localhost:${port}/deleteTodo` , { _id : t._id}).then(res => {
+        await axios.post(`${URL}/deleteTodo` , { _id : t._id}).then(res => {
           console.log(res.data.msg) ;
          
         })
