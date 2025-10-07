@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
 let port = 4000 ;
-let URL = "https://todo-backend-express-weld.vercel.app/" ;
+let URL = "https://todo-backend-express-weld.vercel.app" ;
 function App() {
   const [TODOS, setTODOS] = useState([]) ;
 
