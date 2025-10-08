@@ -57,9 +57,8 @@ function AddTodoBox ({fetchUsers}) {
         await axios.post(`${URL}/addTodo` , {
           title : title , 
           description  : description
-        }).then( res => {
-          alert("Todo Added") ;
         })
+        alert("Todo Added");
       } catch (error) {
         alert("something wemt wrong " , error) ;
       }
