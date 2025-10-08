@@ -58,7 +58,7 @@ function AddTodoBox ({fetchUsers}) {
           title : title , 
           description  : description
         }).then( res => {
-          alert(res.data.msg) ;
+          alert("Todo Added") ;
         })
       } catch (error) {
         alert("something wemt wrong " , error) ;
