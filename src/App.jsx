@@ -26,7 +26,7 @@ function App() {
      <AddTodoBox />
      <button onClick={async()=>{
       await axios.get(`${URL}/deleteAll`).then(res => {
-        console.log(res.data.msg) ;
+        alert(res.data.msg) ;
       })
      }}>clear</button>
      
@@ -58,10 +58,10 @@ function AddTodoBox ({fetchUsers}) {
           title : title , 
           description  : description
         }).then( res => {
-          console.log(res.data) ;
+          alert(res.data.msg) ;
         })
       } catch (error) {
-        console.log("something wemt wrong " , error) ;
+        alert("something wemt wrong " , error) ;
       }
   
      }}>Add Todo</button>
@@ -78,7 +78,7 @@ function AllTodos({todos }) {
     <button onClick={async ()=>{
       try{
         await axios.post(`${URL}/deleteTodo` , { _id : t._id}).then(res => {
-          console.log(res.data.msg) ;
+          alert("Todo Marked Completed") ;
          
         })
       }catch(err){
